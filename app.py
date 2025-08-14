@@ -10,8 +10,8 @@ import cloudinary.api
 import cloudinary_config
 
 app = Flask(__name__)
-CORS(app)
-
+from flask_cors import CORS
+CORS(app, origins=["https://talenthub2025.netlify.app"])
 
 # ==== API: Đăng ký khuôn mặt ====
 @app.route('/api/register-face', methods=['POST'])
@@ -133,5 +133,5 @@ def verify_face():
 
 # ==== Run Server ====
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=5000)
 
