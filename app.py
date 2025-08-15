@@ -21,7 +21,9 @@ REGISTERED_FACES_DIR = "registered_faces"
 
 # Tạo thư mục nếu chưa tồn tại
 os.makedirs(REGISTERED_FACES_DIR, exist_ok=True)
-
+@app.route('/')
+def index():
+    return "Face Recognition API is running!"
 # ==== API: Đăng ký khuôn mặt ====
 @app.route('/api/register-face', methods=['POST'])
 def register_face():
@@ -175,7 +177,5 @@ def verify_face():
 
 # ==== Chạy server ====
 if __name__ == '__main__':
-    if os.getenv('ENV') == 'production':
-        app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)))
-    else:
-        app.run(debug=True, port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
