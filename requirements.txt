@@ -1,8 +1,8 @@
 flask
 flask-cors
-gunicorn
-cloudinary
+face-recognition
 opencv-python
 numpy
-face_recognition
-requests
+cloudinary
+python-dotenv
+gunicorn
